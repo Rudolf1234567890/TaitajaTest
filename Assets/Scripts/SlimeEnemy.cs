@@ -8,6 +8,7 @@ public class SlimeEnemy : MonoBehaviour
     public float splashRadius = 2f;
     public int splashDamage = 2;
     public float stopDistance = 1.5f; // how close it stops
+    public GameObject bloodEffect;
 
     private void Start()
     {
@@ -45,11 +46,15 @@ public class SlimeEnemy : MonoBehaviour
 
         foreach (GameObject p in allPlayers)
         {
-            float dist = Vector2.Distance(slimePos, p.transform.position);
-            if (dist < minDist)
+            PlayerHealth health = p.GetComponent<PlayerHealth>();
+            if (health != null && !health.isKnockedDown) // <-- important check
             {
-                minDist = dist;
-                nearest = p.transform;
+                float dist = Vector2.Distance(slimePos, p.transform.position);
+                if (dist < minDist)
+                {
+                    minDist = dist;
+                    nearest = p.transform;
+                }
             }
         }
         return nearest;
@@ -57,6 +62,7 @@ public class SlimeEnemy : MonoBehaviour
 
     public void TakeDamage(int amount)
     {
+        Instantiate(bloodEffect, transform.position, Quaternion.identity);
         print("Enemy took " + amount + " damage");
         currentHealth -= amount;
         if (currentHealth <= 0)

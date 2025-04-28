@@ -11,6 +11,11 @@ public class PauseMenu : MonoBehaviour
     private bool isPaused = false;
     private int selectedIndex = -1;
 
+    private void Start()
+    {
+        isPaused = false;
+    }
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))

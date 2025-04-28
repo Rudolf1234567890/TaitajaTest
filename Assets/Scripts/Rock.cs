@@ -40,5 +40,10 @@ public class Rock : MonoBehaviour
         {
             collision.collider.GetComponent<SlimeEnemy>().TakeDamage(damage);
         }
+
+        if (collision.collider.CompareTag("MeleeEnemy"))
+        {
+            collision.collider.GetComponent<MeleeEnemy>().TakeDamage(damage);
+        }
     }
 }
