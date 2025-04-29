@@ -15,10 +15,14 @@ public class MeleeEnemy : MonoBehaviour
     public int maxHealth = 10;
     public GameObject bloodEffect;
 
+    private Animator animator;
+    private Vector2 lastPosition;
 
     private void Start()
     {
         currentHealth = maxHealth;
+        animator = GetComponent<Animator>();
+        lastPosition = transform.position;
     }
 
     void Update()
@@ -27,19 +31,75 @@ public class MeleeEnemy : MonoBehaviour
         if (targetPlayer == null) return;
 
         float distance = Vector2.Distance(transform.position, targetPlayer.position);
+        Vector2 dirToPlayer = (targetPlayer.position - transform.position).normalized;
+
+        // Calculate movement direction
+        Vector2 movement = (Vector2)transform.position - lastPosition;
+        lastPosition = transform.position;
 
         if (distance > stopDistance)
         {
-            Vector2 dir = (targetPlayer.position - transform.position).normalized;
-            transform.Translate(dir * speed * Time.deltaTime);
+            transform.Translate(dirToPlayer * speed * Time.deltaTime);
+
+            // Walking animation based on movement direction
+            if (movement.magnitude > 0.01f)
+            {
+                float moveAngle = Vector2.SignedAngle(Vector2.up, movement);
+
+                if (moveAngle >= -45 && moveAngle <= 45)
+                {
+                    animator.Play("walk_backwards");
+                }
+                else if (moveAngle > 45 && moveAngle < 135)
+                {
+                    animator.Play("walks_sideways");
+                    transform.localScale = new Vector3(2f, transform.localScale.y, transform.localScale.z);
+                }
+                else if (moveAngle < -45 && moveAngle > -135)
+                {
+                    animator.Play("walks_sideways");
+                    transform.localScale = new Vector3(-2f, transform.localScale.y, transform.localScale.z);
+                }
+                else
+                {
+                    animator.Play("vampire_walk_forward");
+                }
+            }
+            else
+            {
+                animator.Play("vamp_idle");
+            }
         }
         else
         {
+            // Attack logic
             damageTimer += Time.deltaTime;
             if (damageTimer >= damageInterval)
             {
                 targetPlayer.GetComponent<PlayerHealth>()?.TakeDamage(damage);
                 damageTimer = 0f;
+
+                // Attack animation based on direction to player
+                float attackAngle = Vector2.SignedAngle(Vector2.up, dirToPlayer);
+
+                if (attackAngle >= -45 && attackAngle <= 45)
+                {
+                    animator.Play("attack_backwards");
+                }
+                else if (attackAngle > 45 && attackAngle < 135)
+                {
+                    animator.Play("vampire_attack_sideways");
+                    transform.localScale = new Vector3(2f, transform.localScale.y, transform.localScale.z);
+                }
+                else if (attackAngle < -45 && attackAngle > -135)
+                {
+                    animator.Play("vampire_attack_sideways");
+                    transform.localScale = new Vector3(-2f, transform.localScale.y, transform.localScale.z);
+                }
+                else
+                {
+                    animator.Play("vampire_attack_forward");
+                }
             }
         }
     }
@@ -59,7 +119,7 @@ public class MeleeEnemy : MonoBehaviour
         foreach (GameObject p in allPlayers)
         {
             PlayerHealth health = p.GetComponent<PlayerHealth>();
-            if (health != null && !health.isKnockedDown) // <-- use the variable, not a method
+            if (health != null && !health.isKnockedDown)
             {
                 float dist = Vector2.Distance(myPos, p.transform.position);
                 if (dist < minDist)
