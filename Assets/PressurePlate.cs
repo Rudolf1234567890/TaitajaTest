@@ -2,30 +2,38 @@ using UnityEngine;
 
 public class PressurePlate : MonoBehaviour
 {
-    [SerializeField] public static int playersOnPlates = 0; // Shared counter
-    public GameObject targetToActivate;
+    public static int playersOnPlates = 0;
+    public static bool alreadyTriggered = false;
+
+    public GameObject targetToDeactivate; // e.g. a wall (must be active in scene)
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        if (alreadyTriggered) return;
+
         if (other.CompareTag("Player1") || other.CompareTag("Player2"))
         {
             playersOnPlates++;
-            CheckActivation();
+            CheckDeactivation();
         }
     }
 
     void OnTriggerExit2D(Collider2D other)
     {
+        if (alreadyTriggered) return;
+
         if (other.CompareTag("Player1") || other.CompareTag("Player2"))
         {
             playersOnPlates--;
-            CheckActivation();
         }
     }
 
-    void CheckActivation()
+    void CheckDeactivation()
     {
-        if (targetToActivate != null)
-            targetToActivate.SetActive(playersOnPlates >= 2);
+        if (playersOnPlates >= 2 && targetToDeactivate != null)
+        {
+            targetToDeactivate.SetActive(false);
+            alreadyTriggered = true;
+        }
     }
 }
