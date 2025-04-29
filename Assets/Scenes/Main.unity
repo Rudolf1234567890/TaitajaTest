@@ -1589,6 +1589,7 @@ MonoBehaviour:
   rockSpeed: 10
   rockDamage: 5
   rockSize: {x: 0.5, y: 1}
+  throwSound: {fileID: 0}
 --- !u!114 &759578596
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2961,6 +2962,7 @@ MonoBehaviour:
   rockSpeed: 10
   rockDamage: 5
   rockSize: {x: 0.5, y: 1}
+  throwSound: {fileID: 0}
 --- !u!114 &1095079752
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6622,10 +6624,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: MeleeEnemy
       objectReference: {fileID: 0}
-    - target: {fileID: 8451835300768666454, guid: 7a0025e60bc613844bf68e9d991ba5bf, type: 3}
-      propertyPath: deathEffect
-      value: 
-      objectReference: {fileID: 4665532384514736955, guid: 6b4cef1f6fec5384393b0fd9e462afb7, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
