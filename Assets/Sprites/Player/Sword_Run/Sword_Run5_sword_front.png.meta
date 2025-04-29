@@ -509,7 +509,23 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Sword_Run5_sword_front_0: -8811685424235632780
+      Sword_Run5_sword_front_1: -1776465275550407623
+      Sword_Run5_sword_front_10: 2373845135804832394
+      Sword_Run5_sword_front_11: 6352759256316646129
+      Sword_Run5_sword_front_12: -5973470833373566459
+      Sword_Run5_sword_front_13: -1522177060605992506
+      Sword_Run5_sword_front_14: -3762389045949627275
+      Sword_Run5_sword_front_15: 1485659745478686092
+      Sword_Run5_sword_front_2: -863580016706721313
+      Sword_Run5_sword_front_3: -141381802520623613
+      Sword_Run5_sword_front_4: 2785139476954576322
+      Sword_Run5_sword_front_5: -5391025351462544699
+      Sword_Run5_sword_front_6: 306757987799578173
+      Sword_Run5_sword_front_7: -3006803523668972374
+      Sword_Run5_sword_front_8: 7287233461518722089
+      Sword_Run5_sword_front_9: 7536281686858708825
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
