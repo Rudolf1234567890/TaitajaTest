@@ -7,6 +7,8 @@ public class MeleeEnemy : MonoBehaviour
     public float triggerRange = 6f; // New field
     public int damage = 1;
     public float damageInterval = 1f;
+    public bool isBoss = false;
+    public GameObject youWonPanel;
 
     private float damageTimer = 0f;
     private Transform targetPlayer;
@@ -25,6 +27,9 @@ public class MeleeEnemy : MonoBehaviour
         currentHealth = maxHealth;
         animator = GetComponent<Animator>();
         lastPosition = transform.position;
+
+        if (isBoss && youWonPanel != null)
+            youWonPanel.SetActive(false);
     }
 
     void Update()
@@ -150,6 +155,11 @@ public class MeleeEnemy : MonoBehaviour
 
     void Die()
     {
+        if (isBoss && youWonPanel != null)
+        {
+            youWonPanel.SetActive(true);
+            Time.timeScale = 0f;
+        }
         Instantiate(deathEffect, transform.position, Quaternion.identity);
         print("Enemy died!");
         Destroy(gameObject);
