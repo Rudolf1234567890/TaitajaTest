@@ -10,10 +10,13 @@ public class SlimeEnemy : MonoBehaviour
     public float stopDistance = 1.5f;
     public float triggerRange = 5f; // New range for chasing
     public GameObject bloodEffect;
+<<<<<<< HEAD
 
     public AudioSource audioSource;    
     public AudioClip hitSound;
 
+=======
+>>>>>>> parent of bb96c92 (Merge branch 'main' of https://github.com/Rudolf1234567890/TaitajaTest)
     public GameObject dieEffect;
 
     private void Start()
@@ -69,7 +72,6 @@ public class SlimeEnemy : MonoBehaviour
 
     public void TakeDamage(int amount)
     {
-        audioSource.PlayOneShot(hitSound);
         Instantiate(bloodEffect, transform.position, Quaternion.identity);
         currentHealth -= amount;
         if (currentHealth <= 0)
