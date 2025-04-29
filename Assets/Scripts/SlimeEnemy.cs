@@ -9,7 +9,8 @@ public class SlimeEnemy : MonoBehaviour
     public int splashDamage = 2;
     public float stopDistance = 1.5f; // how close it stops
     public GameObject bloodEffect;
-
+    public AudioSource audioSource;    
+    public AudioClip hitSound;
     private void Start()
     {
         currentHealth = MaxHealth;
@@ -62,6 +63,7 @@ public class SlimeEnemy : MonoBehaviour
 
     public void TakeDamage(int amount)
     {
+        audioSource.PlayOneShot(hitSound);
         Instantiate(bloodEffect, transform.position, Quaternion.identity);
         print("Enemy took " + amount + " damage");
         currentHealth -= amount;
