@@ -8,6 +8,10 @@ public class MeleeEnemy : MonoBehaviour
     public int damage = 1;
     public float damageInterval = 1f;
 
+    [Header("Don't Touch unless the enemy is a boss")]
+    public bool isBoss = false;
+    public GameObject youWonPanel;
+
     private float damageTimer = 0f;
     private Transform targetPlayer;
 
@@ -19,12 +23,16 @@ public class MeleeEnemy : MonoBehaviour
 
     private Animator animator;
     private Vector2 lastPosition;
-
+    public AudioClip end_music;
+    public AudioSource audioS;
     private void Start()
     {
         currentHealth = maxHealth;
         animator = GetComponent<Animator>();
         lastPosition = transform.position;
+
+        if (isBoss && youWonPanel != null)
+            youWonPanel.SetActive(false);
     }
 
     void Update()
@@ -55,12 +63,28 @@ public class MeleeEnemy : MonoBehaviour
                     else if (moveAngle > 45 && moveAngle < 135)
                     {
                         animator.Play("walks_sideways");
-                        transform.localScale = new Vector3(2f, transform.localScale.y, transform.localScale.z);
+                        animator.Play("vampire_attack_sideways");
+                        if (isBoss)
+                        {
+                            transform.localScale = new Vector3(4f, transform.localScale.y, transform.localScale.z);
+                        }
+                        else
+                        {
+                            transform.localScale = new Vector3(2f, transform.localScale.y, transform.localScale.z);
+                        }
                     }
                     else if (moveAngle < -45 && moveAngle > -135)
                     {
                         animator.Play("walks_sideways");
-                        transform.localScale = new Vector3(-2f, transform.localScale.y, transform.localScale.z);
+                        animator.Play("vampire_attack_sideways");
+                        if (isBoss)
+                        {
+                            transform.localScale = new Vector3(-4f, transform.localScale.y, transform.localScale.z);
+                        }
+                        else
+                        {
+                            transform.localScale = new Vector3(-2f, transform.localScale.y, transform.localScale.z);
+                        }
                     }
                     else
                     {
@@ -89,12 +113,27 @@ public class MeleeEnemy : MonoBehaviour
                     else if (attackAngle > 45 && attackAngle < 135)
                     {
                         animator.Play("vampire_attack_sideways");
-                        transform.localScale = new Vector3(2f, transform.localScale.y, transform.localScale.z);
+                        
+                        if (isBoss)
+                        {
+                            transform.localScale = new Vector3(4f, transform.localScale.y, transform.localScale.z);
+                        }
+                        else
+                        {
+                            transform.localScale = new Vector3(2f, transform.localScale.y, transform.localScale.z);
+                        }
                     }
                     else if (attackAngle < -45 && attackAngle > -135)
                     {
                         animator.Play("vampire_attack_sideways");
-                        transform.localScale = new Vector3(-2f, transform.localScale.y, transform.localScale.z);
+                        if (isBoss)
+                        {
+                            transform.localScale = new Vector3(-4f, transform.localScale.y, transform.localScale.z);
+                        }
+                        else
+                        {
+                            transform.localScale = new Vector3(-2f, transform.localScale.y, transform.localScale.z);
+                        }
                     }
                     else
                     {
@@ -150,6 +189,19 @@ public class MeleeEnemy : MonoBehaviour
 
     void Die()
     {
+        if (isBoss && youWonPanel != null)
+        {
+            youWonPanel.SetActive(true);
+            Time.timeScale = 0f;
+            audioS.Stop();
+            audioS.PlayOneShot(end_music);
+
+        }
+        if (!isBoss)
+        {
+            GameManager.Instance.AddXP(2);
+        }
+
         Instantiate(deathEffect, transform.position, Quaternion.identity);
         print("Enemy died!");
         Destroy(gameObject);

@@ -80,6 +80,7 @@ public class SlimeEnemy : MonoBehaviour
 
     void Die()
     {
+        GameManager.Instance.AddXP(1);
         Instantiate(dieEffect, transform.position, Quaternion.identity);
         Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, splashRadius);
         foreach (Collider2D hit in hits)

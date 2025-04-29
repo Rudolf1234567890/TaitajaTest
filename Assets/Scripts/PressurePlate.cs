@@ -2,8 +2,10 @@ using UnityEngine;
 
 public class PressurePlate : MonoBehaviour
 {
-    public static int playersOnPlates = 0;
-    public static bool alreadyTriggered = false;
+    public int playersOnPlates = 0;
+    public bool alreadyTriggered = false;
+
+    
 
     public GameObject targetToDeactivate; // e.g. a wall (must be active in scene)
 
@@ -13,7 +15,9 @@ public class PressurePlate : MonoBehaviour
 
         if (other.CompareTag("Player1") || other.CompareTag("Player2"))
         {
-            playersOnPlates++;
+            GameManager.Instance.playerOnPlates += 1;
+            alreadyTriggered = true;
+            print("1 on");
             CheckDeactivation();
         }
     }
@@ -24,16 +28,20 @@ public class PressurePlate : MonoBehaviour
 
         if (other.CompareTag("Player1") || other.CompareTag("Player2"))
         {
-            playersOnPlates--;
+            GameManager.Instance.playerOnPlates -= 1;
+            alreadyTriggered = false;
         }
     }
 
     void CheckDeactivation()
     {
+        playersOnPlates = GameManager.Instance.playerOnPlates;
+        print(playersOnPlates);
         if (playersOnPlates >= 2 && targetToDeactivate != null)
         {
+            print(playersOnPlates);
             targetToDeactivate.SetActive(false);
-            alreadyTriggered = true;
+            
         }
     }
 }

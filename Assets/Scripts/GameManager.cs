@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     private PlayerHealth player1Health;
     private PlayerHealth player2Health;
 
+    public int playerOnPlates = 0;
+
     public GameObject levelUpCanvas;  // Now it's a GameObject
 
     // Experience points

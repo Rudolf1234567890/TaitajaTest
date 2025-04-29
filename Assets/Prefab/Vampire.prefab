@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7623248908580923593}
   - component: {fileID: 4371554828487029716}
   - component: {fileID: 5522605980655344220}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Vampire
   m_TagString: MeleeEnemy
   m_Icon: {fileID: 0}
@@ -108,10 +108,14 @@ MonoBehaviour:
   triggerRange: 15
   damage: 10
   damageInterval: 1
+  isBoss: 0
+  youWonPanel: {fileID: 0}
   currentHealth: 0
   maxHealth: 10
   bloodEffect: {fileID: 4665532384514736955, guid: b2c91e796ec20fc4b97d10da82e057c7, type: 3}
   deathEffect: {fileID: 4665532384514736955, guid: 6b4cef1f6fec5384393b0fd9e462afb7, type: 3}
+  end_music: {fileID: 0}
+  audioS: {fileID: 0}
 --- !u!58 &7623248908580923593
 CircleCollider2D:
   m_ObjectHideFlags: 0
