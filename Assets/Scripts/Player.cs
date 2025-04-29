@@ -11,17 +11,22 @@ public class Player : MonoBehaviour
     public float rockSpeed = 10f;
     public int rockDamage = 5;
     public Vector2 rockSize = new Vector2(0.5f, 1f);
+    private AudioSource audioSource;    
+    public AudioClip throwSound;
 
     void Start()
     {
         rockIndicator.SetActive(hasRock);
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
     {
         if (hasRock && Input.GetKeyDown(shootKey))
         {
+            audioSource.PlayOneShot(throwSound);
             Shoot();
+            
         }
     }
 
@@ -38,6 +43,7 @@ public class Player : MonoBehaviour
         rockScript.Launch(GameManager.Instance.GetOtherPlayer(transform), gameObject.tag);
         hasRock = false;
         rockIndicator.SetActive(false);
+        
     }
 
     public void GiveRock()

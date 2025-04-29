@@ -1586,6 +1586,7 @@ GameObject:
   - component: {fileID: 759578590}
   - component: {fileID: 759578589}
   - component: {fileID: 759578594}
+  - component: {fileID: 759578597}
   m_Layer: 0
   m_Name: Player2
   m_TagString: Player2
@@ -1802,6 +1803,7 @@ MonoBehaviour:
   rockSpeed: 10
   rockDamage: 5
   rockSize: {x: 0.5, y: 1}
+  throwSound: {fileID: 8300000, guid: ada9c83b854163943987e583bee44a0b, type: 3}
 --- !u!114 &759578596
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1821,6 +1823,103 @@ MonoBehaviour:
   reviveText: {fileID: 1200495473}
   downPanel: {fileID: 1116892782}
   pm: {fileID: 759578591}
+--- !u!82 &759578597
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 759578588}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &773077514
 GameObject:
   m_ObjectHideFlags: 0
@@ -2958,6 +3057,7 @@ GameObject:
   - component: {fileID: 1095079746}
   - component: {fileID: 1095079745}
   - component: {fileID: 1095079750}
+  - component: {fileID: 1095079753}
   m_Layer: 0
   m_Name: Player1
   m_TagString: Player1
@@ -3174,6 +3274,7 @@ MonoBehaviour:
   rockSpeed: 10
   rockDamage: 5
   rockSize: {x: 0.5, y: 1}
+  throwSound: {fileID: 8300000, guid: ada9c83b854163943987e583bee44a0b, type: 3}
 --- !u!114 &1095079752
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3193,6 +3294,103 @@ MonoBehaviour:
   reviveText: {fileID: 1650971402}
   downPanel: {fileID: 1184140098}
   pm: {fileID: 1095079747}
+--- !u!82 &1095079753
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1095079744}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1116892782
 GameObject:
   m_ObjectHideFlags: 0
@@ -6321,7 +6519,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'FASTER ROCK
 
-    (+1 Speed)'
+    (2x Speed)'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
@@ -6409,8 +6607,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 201.13074, y: 49.2637}
+  m_AnchoredPosition: {x: 0, y: -18.272}
+  m_SizeDelta: {x: 201.1307, y: 85.807}
   m_Pivot: {x: 0.5000001, y: 0.5}
 --- !u!222 &2550828105768926576
 CanvasRenderer:
@@ -6455,8 +6653,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -154.46, y: 0}
-  m_SizeDelta: {x: 201.13074, y: 49.2637}
+  m_AnchoredPosition: {x: -133.62607, y: -18.2718}
+  m_SizeDelta: {x: 242.7987, y: 85.8072}
   m_Pivot: {x: 0.5000001, y: 0.5}
 --- !u!114 &3455246268174294467
 MonoBehaviour:
@@ -6526,7 +6724,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Bigger Rock
 
-    (+1 size)'
+    (2x size)'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
@@ -6672,7 +6870,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Sharper Rock
 
-    (+1 Damage)'
+    (+5 Damage)'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
@@ -6737,7 +6935,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -22.326324, w: 0}
+  m_margin: {x: 0, y: 0, z: 32.023224, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -7027,8 +7225,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 1.8116, y: 0}
+  m_SizeDelta: {x: 3.6233, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &6651819442152209951
 GameObject:
@@ -7191,7 +7389,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &7444232827989178128
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7432,8 +7630,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 155.5, y: 0}
-  m_SizeDelta: {x: 201.1307, y: 49.2637}
+  m_AnchoredPosition: {x: 155.5, y: -18.272}
+  m_SizeDelta: {x: 201.1307, y: 85.807}
   m_Pivot: {x: 0.5000001, y: 0.5}
 --- !u!1 &9006162726765178773
 GameObject:
