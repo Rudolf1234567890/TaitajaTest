@@ -11,10 +11,12 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody2D rb;
     private Vector2 movement;
+    private Animator animator;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -27,10 +29,42 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey(moveRight)) movement.x = 1;
 
         movement = movement.normalized;
+
+        UpdateAnimation(movement);
     }
 
     void FixedUpdate()
     {
         rb.linearVelocity = movement * moveSpeed;
+    }
+
+    void UpdateAnimation(Vector2 dir)
+    {
+        if (dir.magnitude == 0)
+        {
+            animator.Play("idle_player");
+            return;
+        }
+
+        float angle = Vector2.SignedAngle(Vector2.up, dir);
+
+        if (angle >= -45 && angle <= 45)
+        {
+            animator.Play("walk_up");
+        }
+        else if (angle > 45 && angle < 135)
+        {
+            animator.Play("walk_sideways");
+            transform.localScale = new Vector3(1, 1, 1); // facing right
+        }
+        else if (angle < -45 && angle > -135)
+        {
+            animator.Play("walk_sideways");
+            transform.localScale = new Vector3(-1, 1, 1); // facing left
+        }
+        else
+        {
+            animator.Play("walk_down");
+        }
     }
 }
