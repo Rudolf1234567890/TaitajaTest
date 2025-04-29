@@ -110,9 +110,7 @@ MonoBehaviour:
   splashRadius: 3
   splashDamage: 25
   stopDistance: 1
-  anim: {fileID: 4347123104223998962}
-  audioSource: {fileID: 5369934971485511260}
-  damageSound: {fileID: 8300000, guid: 67f3a1d27830202418f40ef1c5c97cb4, type: 3}
+  bloodEffect: {fileID: 0}
 --- !u!58 &6641419153331494163
 CircleCollider2D:
   m_ObjectHideFlags: 0
