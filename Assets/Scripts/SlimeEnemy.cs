@@ -10,8 +10,13 @@ public class SlimeEnemy : MonoBehaviour
     public float stopDistance = 1.5f;
     public float triggerRange = 5f; // New range for chasing
     public GameObject bloodEffect;
+<<<<<<< HEAD
+    public AudioSource audioSource;    
+    public AudioClip hitSound;
+=======
     public GameObject dieEffect;
 
+>>>>>>> 057656c4d67ed8acd0e81dbf7c9577e4343b8ce9
     private void Start()
     {
         currentHealth = MaxHealth;
@@ -65,6 +70,7 @@ public class SlimeEnemy : MonoBehaviour
 
     public void TakeDamage(int amount)
     {
+        audioSource.PlayOneShot(hitSound);
         Instantiate(bloodEffect, transform.position, Quaternion.identity);
         currentHealth -= amount;
         if (currentHealth <= 0)
