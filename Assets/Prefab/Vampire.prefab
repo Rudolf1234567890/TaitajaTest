@@ -79,7 +79,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -5284183712937704879, guid: 7d9906d42801fec418245c8f278870d7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -105,11 +105,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   stopDistance: 1.2
+  triggerRange: 15
   damage: 10
   damageInterval: 1
   currentHealth: 0
   maxHealth: 10
   bloodEffect: {fileID: 4665532384514736955, guid: b2c91e796ec20fc4b97d10da82e057c7, type: 3}
+  deathEffect: {fileID: 4665532384514736955, guid: 6b4cef1f6fec5384393b0fd9e462afb7, type: 3}
 --- !u!58 &7623248908580923593
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -7,10 +7,16 @@ public class SlimeEnemy : MonoBehaviour
     public int MaxHealth = 5;
     public float splashRadius = 2f;
     public int splashDamage = 2;
-    public float stopDistance = 1.5f; // how close it stops
+    public float stopDistance = 1.5f;
+    public float triggerRange = 5f; // New range for chasing
     public GameObject bloodEffect;
+<<<<<<< HEAD
     public AudioSource audioSource;    
     public AudioClip hitSound;
+=======
+    public GameObject dieEffect;
+
+>>>>>>> 057656c4d67ed8acd0e81dbf7c9577e4343b8ce9
     private void Start()
     {
         currentHealth = MaxHealth;
@@ -22,7 +28,8 @@ public class SlimeEnemy : MonoBehaviour
         if (nearestPlayer != null)
         {
             float distance = Vector2.Distance(transform.position, nearestPlayer.position);
-            if (distance > stopDistance)
+
+            if (distance <= triggerRange && distance > stopDistance)
             {
                 Vector2 dir = (nearestPlayer.position - transform.position).normalized;
                 transform.Translate(dir * speed * Time.deltaTime);
@@ -48,7 +55,7 @@ public class SlimeEnemy : MonoBehaviour
         foreach (GameObject p in allPlayers)
         {
             PlayerHealth health = p.GetComponent<PlayerHealth>();
-            if (health != null && !health.isKnockedDown) // <-- important check
+            if (health != null && !health.isKnockedDown)
             {
                 float dist = Vector2.Distance(slimePos, p.transform.position);
                 if (dist < minDist)
@@ -65,7 +72,6 @@ public class SlimeEnemy : MonoBehaviour
     {
         audioSource.PlayOneShot(hitSound);
         Instantiate(bloodEffect, transform.position, Quaternion.identity);
-        print("Enemy took " + amount + " damage");
         currentHealth -= amount;
         if (currentHealth <= 0)
         {
@@ -75,6 +81,7 @@ public class SlimeEnemy : MonoBehaviour
 
     void Die()
     {
+        Instantiate(dieEffect, transform.position, Quaternion.identity);
         Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, splashRadius);
         foreach (Collider2D hit in hits)
         {
@@ -92,5 +99,7 @@ public class SlimeEnemy : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, splashRadius);
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(transform.position, stopDistance);
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, triggerRange); // visualize trigger range
     }
 }

@@ -6,14 +6,16 @@ public class GameOver : MonoBehaviour
    
     public void RestartGame()
     {
-        Time.timeScale = 1f;
+        
         SceneManager.LoadScene("Main");
+        Time.timeScale = 1f;
     }
     
     public void MainMenu()
     {
-        Time.timeScale = 1f;
+        
         SceneManager.LoadScene("MainMenu");
+        Time.timeScale = 1f;
     }
 
     public void Quit()

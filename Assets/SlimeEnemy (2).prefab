@@ -110,7 +110,9 @@ MonoBehaviour:
   splashRadius: 3
   splashDamage: 25
   stopDistance: 1
-  bloodEffect: {fileID: 0}
+  triggerRange: 15
+  bloodEffect: {fileID: 4665532384514736955, guid: b2c91e796ec20fc4b97d10da82e057c7, type: 3}
+  dieEffect: {fileID: 4731440240781814819, guid: 1010ffd5e59e63c46a3861c9141f1133, type: 3}
 --- !u!58 &6641419153331494163
 CircleCollider2D:
   m_ObjectHideFlags: 0
