@@ -32,18 +32,15 @@ public class Rock : MonoBehaviour
                 Destroy(gameObject);
             }
         }
-    }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.collider.CompareTag("Slime"))
+        if (other.CompareTag("Slime"))
         {
-            collision.collider.GetComponent<SlimeEnemy>().TakeDamage(damage);
+            other.GetComponent<SlimeEnemy>().TakeDamage(damage);
         }
 
-        if (collision.collider.CompareTag("MeleeEnemy"))
+        if (other.CompareTag("MeleeEnemy"))
         {
-            collision.collider.GetComponent<MeleeEnemy>().TakeDamage(damage);
+            other.GetComponent<MeleeEnemy>().TakeDamage(damage);
         }
     }
 }
