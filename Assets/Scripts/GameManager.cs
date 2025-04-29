@@ -57,7 +57,7 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Game Over!");
         gameOverPanel.SetActive(true);
-        Time.timeScale = 0f;
+        Time.timeScale = 1f;
     }
 
     public void AddXP(int amount)
